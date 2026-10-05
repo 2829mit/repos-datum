@@ -1,0 +1,59 @@
+{
+  "entities": {
+    "Lead": {
+      "title": "Lead",
+      "description": "Customer lead details captured from the quotation configurator lead form",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "mobile": { "type": "string" },
+        "email": { "type": "string" },
+        "company": { "type": "string" },
+        "designation": { "type": "string" },
+        "gstNumber": { "type": "string" },
+        "industry": { "type": "string" },
+        "state": { "type": "string" },
+        "consumption": { "type": "string" },
+        "salesperson": { "type": "string" },
+        "salespersonEmail": { "type": "string" },
+        "numberOfSites": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["name", "mobile", "company", "state", "salesperson"]
+    },
+    "Quote": {
+      "title": "Quote",
+      "description": "Generated quotation details associated with a lead and representative",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "quoteNumber": { "type": "string" },
+        "customerName": { "type": "string" },
+        "customerEmail": { "type": "string" },
+        "customerMobile": { "type": "string" },
+        "company": { "type": "string" },
+        "salesperson": { "type": "string" },
+        "salespersonEmail": { "type": "string" },
+        "selectedProduct": { "type": "string" },
+        "paymentMode": { "type": "string" },
+        "totalPrice": { "type": "number" },
+        "totalContractValue": { "type": "number" },
+        "gstAmount": { "type": "number" },
+        "finalPartcode": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["quoteNumber", "customerName", "salesperson", "totalPrice"]
+    }
+  },
+  "firestore": {
+    "/leads/{leadId}": {
+      "schema": "Lead",
+      "description": "Collection of customer leads"
+    },
+    "/quotes/{quoteId}": {
+      "schema": "Quote",
+      "description": "Collection of generated quotes"
+    }
+  }
+}
